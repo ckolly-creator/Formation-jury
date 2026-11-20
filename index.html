@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation des jurés · Lutte suisse</title>
+<meta name="description" content="Plateforme de formation des jurés de lutte suisse : questions sur le Règlement technique 2026, par chapitre, avec récapitulatif imprimable.">
+<meta name="theme-color" content="#D52B1E">
+<meta property="og:title" content="Formation des jurés · Lutte suisse">
+<meta property="og:description" content="Testez vos connaissances du Règlement technique 2026 et imprimez votre récapitulatif.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23D52B1E'/%3E%3Cpath d='M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --red:#D52B1E; --red-dark:#A81F15; --red-soft:#FCECEA;
+  --ink:#1B1B1F; --muted:#5F6068; --line:#E6E3E1; --bg:#F7F5F3; --card:#FFFFFF;
+  --ok:#1E8E4E; --ok-soft:#E7F5EC; --warn:#C77700; --warn-soft:#FFF4E0; --bad:#C62828; --bad-soft:#FDECEC;
+  --radius:14px; --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 24px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+.hdr{background:var(--red);color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(168,31,21,.25)}
+.hdr-in{max-width:960px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.cross{width:36px;height:36px;flex:none}
+.brand b{display:block;font-size:17px;letter-spacing:.2px}
+.brand span{font-size:12.5px;opacity:.85}
+.hdr .who{margin-left:auto;font-size:13px;opacity:.95;text-align:right}
+.progress{height:4px;background:rgba(255,255,255,.25)}
+.progress i{display:block;height:100%;width:0;background:#fff;transition:width .4s}
+main{max-width:960px;margin:0 auto;padding:24px 16px 64px}
+.hero{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);color:#fff;border-radius:var(--radius);padding:28px 24px;position:relative;overflow:hidden;margin-bottom:20px}
+.hero h1{margin:0 0 6px;font-size:clamp(22px,4vw,30px);line-height:1.2}
+.hero p{margin:0;opacity:.92;max-width:560px}
+.hero svg{position:absolute;right:-30px;bottom:-30px;width:180px;height:180px;opacity:.12}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-bottom:16px}
+.card h2{margin:0 0 14px;font-size:18px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+label.f{display:block;font-size:13px;color:var(--muted);margin-bottom:4px;font-weight:600}
+input[type=text],input[type=number]{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:border .15s}
+input[type=text]:focus,input[type=number]:focus{border-color:var(--red)}
+.chaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.chap{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .15s;background:#fff}
+.chap:hover{border-color:#d9a8a3}
+.chap.on{border-color:var(--red);background:var(--red-soft)}
+.chap input{display:none}
+.chap .num{flex:none;width:30px;height:30px;border-radius:8px;background:var(--line);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:14px}
+.chap.on .num{background:var(--red);color:#fff}
+.chap b{display:block;font-size:14.5px;line-height:1.3}
+.chap small{color:var(--muted);font-size:12.5px}
+.chap.all{grid-column:1/-1}
+.opts{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:14px}
+.btn{appearance:none;border:0;border-radius:10px;padding:12px 20px;font-weight:650;cursor:pointer;transition:transform .08s,background .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:scale(.98)}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-dark)}
+.btn.p:disabled{background:#d8b3af;cursor:not-allowed}
+.btn.s{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn.s:hover{border-color:var(--ink)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.err{color:var(--bad);font-size:13.5px;margin-top:8px;min-height:1em}
+/* quiz */
+.qmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.pill{font-size:12px;font-weight:650;padding:4px 10px;border-radius:99px;background:var(--line);color:var(--ink)}
+.pill.r{background:var(--red-soft);color:var(--red-dark)}
+.qmeta .cnt{margin-left:auto;color:var(--muted);font-size:13px}
+.situ{background:#FAF8F6;border-left:4px solid var(--red);padding:12px 14px;border-radius:0 10px 10px 0;margin-bottom:12px;font-size:15px}
+.situ b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--red-dark);margin-bottom:2px}
+.q{font-size:clamp(17px,2.4vw,20px);font-weight:650;margin:0 0 16px;line-height:1.35}
+.hint{font-size:13px;color:var(--muted);margin:-8px 0 14px}
+.choice{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:8px;cursor:pointer;transition:all .12s;color:var(--ink)}
+.choice:hover:not(:disabled){border-color:#c99}
+.choice .k{flex:none;width:26px;height:26px;border-radius:7px;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--muted)}
+.choice.multi .k{border-radius:6px}
+.choice.sel{border-color:var(--red);background:var(--red-soft)}
+.choice.sel .k{background:var(--red);border-color:var(--red);color:#fff}
+.choice.good{border-color:var(--ok);background:var(--ok-soft)}
+.choice.good .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.choice:disabled{cursor:default}
+.vf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vf .choice{justify-content:center;font-weight:650;padding:16px}
+.ord{list-style:none;margin:0;padding:0}
+.ord li{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.ord li .n{flex:none;width:26px;height:26px;border-radius:7px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.ord li span.t{flex:1}
+.ord button{border:1.5px solid var(--line);background:#fff;border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+.ord button:disabled{opacity:.3;cursor:default}
+.num-in{display:flex;gap:10px;align-items:center;max-width:280px}
+.num-in span{color:var(--muted);white-space:nowrap}
+.fb{border-radius:12px;padding:14px 16px;margin-top:16px;font-size:15px;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fb.ok{background:var(--ok-soft);border:1.5px solid #b9e2c8}
+.fb.warn{background:var(--warn-soft);border:1.5px solid #f3d398}
+.fb.bad{background:var(--bad-soft);border:1.5px solid #f2bcbc}
+.fb h4{margin:0 0 4px;font-size:15.5px}
+.fb .art{display:inline-block;margin-top:8px;font-weight:700;color:var(--red-dark);font-size:13.5px}
+.fb blockquote{margin:6px 0 0;padding:8px 12px;background:rgba(255,255,255,.7);border-left:3px solid var(--red);border-radius:0 8px 8px 0;font-size:14px;color:#333}
+.tries{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}
+.tries i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.tries i.used{background:var(--warn)}
+/* recap */
+.score{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;flex:none}
+.score h2{margin:0;font-size:22px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.stat{border-radius:10px;padding:8px 12px;font-size:13.5px;font-weight:600}
+.stat.g{background:var(--ok-soft);color:var(--ok)} .stat.o{background:var(--warn-soft);color:var(--warn)} .stat.r{background:var(--bad-soft);color:var(--bad)}
+.bars .b{display:grid;grid-template-columns:minmax(120px,240px) 1fr 52px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.bars .tr{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.bars .tr i{display:block;height:100%;background:var(--red);border-radius:99px}
+.bars .pc{text-align:right;font-weight:700}
+.rq{border:1.5px solid var(--line);border-left-width:5px;border-radius:10px;padding:12px 14px;margin-bottom:10px;break-inside:avoid;page-break-inside:avoid}
+.rq.first{border-left-color:var(--ok)} .rq.second{border-left-color:var(--warn)} .rq.revealed{border-left-color:var(--bad)}
+.rq .top{display:flex;gap:8px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.rq .qq{font-weight:650;margin:2px 0 6px}
+.rq .l{font-size:14px;margin:2px 0}
+.rq .l b{display:inline-block;min-width:118px;color:var(--muted);font-weight:600}
+.tag{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:99px;white-space:nowrap}
+.tag.first{background:var(--ok-soft);color:var(--ok)} .tag.second{background:var(--warn-soft);color:var(--warn)} .tag.revealed{background:var(--bad-soft);color:var(--bad)}
+.tabs{max-width:960px;margin:0 auto;padding:0 16px;display:flex;gap:4px}
+.tab{appearance:none;border:0;background:transparent;color:rgba(255,255,255,.8);font-weight:650;font-size:14px;padding:8px 14px;border-radius:10px 10px 0 0;cursor:pointer}
+.tab.on{background:var(--bg);color:var(--red-dark)}
+.tab:hover:not(.on){color:#fff;background:rgba(255,255,255,.12)}
+.video{position:relative;border-radius:12px;overflow:hidden;background:#111;margin-bottom:14px;aspect-ratio:16/9}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--red-dark);margin-bottom:6px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-grid .full{grid-column:1/-1}
+select,textarea{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit;outline:none}
+textarea{min-height:90px;resize:vertical}
+select:focus,textarea:focus{border-color:var(--red)}
+.help{font-size:12.5px;color:var(--muted);margin-top:4px}
+.optrow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.optrow input[type=text]{flex:1}
+.optrow label{display:flex;gap:4px;align-items:center;font-size:13px;color:var(--muted);white-space:nowrap}
+.mine{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.mine div{flex:1;font-size:14px}
+.mine small{color:var(--muted)}
+.mine button{border:0;background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:6px 10px;cursor:pointer;font-weight:600}
+.badge-v{display:inline-block;font-size:11px;font-weight:700;background:#1B1B1F;color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px}
+@media (max-width:560px){.form-grid{grid-template-columns:1fr}}
+.print-head{display:none}
+.hide{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:0 16px 30px}
+@media (max-width:560px){
+  .hdr .who{display:none}
+  .card{padding:18px 16px}
+  .bars .b{grid-template-columns:1fr 52px}
+  .bars .b .tr{grid-column:1/-1;grid-row:2}
+  .rq .l b{display:block;min-width:0}
+}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;font-size:11pt}
+  .hdr,.noprint,footer,.hero{display:none!important}
+  main{padding:0;max-width:none}
+  .card{box-shadow:none;border:1px solid #ddd;padding:12px;margin-bottom:10px}
+  .print-head{display:flex;align-items:center;gap:10px;border-bottom:3px solid var(--red);padding-bottom:8px;margin-bottom:12px}
+  .print-head svg{width:30px;height:30px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="ch" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#fff"/><rect x="2.5" y="2.5" width="27" height="27" rx="4" fill="#D52B1E"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></symbol>
+</svg>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <svg class="cross"><use href="#ch"/></svg>
+    <div class="brand"><b>Formation des jurés</b><span>Lutte suisse · Règlement technique 2026</span></div>
+    <div class="who" id="who"></div>
+  </div>
+  <nav class="tabs noprint">
+    <button class="tab on" data-tab="train">🎓 Formation</button>
+    <button class="tab" data-tab="admin">✏️ Création (responsables)</button>
+  </nav>
+  <div class="progress"><i id="bar"></i></div>
+</header>
+
+<main>
+  <!-- ÉCRAN 1 : CONNEXION -->
+  <section id="s-login">
+    <div class="hero">
+      <h1>Prêt pour le rond de sciure ?</h1>
+      <p>Testez vos connaissances du règlement technique : deux essais par question, puis la solution est donnée avec l'article de référence. Imprimez ensuite votre récapitulatif.</p>
+      <svg viewBox="0 0 32 32"><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>
+    </div>
+
+    <div class="card">
+      <h2>1. Qui êtes-vous ? <span style="font-weight:400;color:var(--muted);font-size:14px">(aucun compte requis)</span></h2>
+      <div class="row">
+        <div><label class="f" for="fn">Prénom *</label><input type="text" id="fn" autocomplete="given-name"></div>
+        <div><label class="f" for="ln">Nom *</label><input type="text" id="ln" autocomplete="family-name"></div>
+        <div><label class="f" for="cl">Club / association</label><input type="text" id="cl" placeholder="ex. Club des lutteurs de …"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. Que voulez-vous réviser ?</h2>
+      <div class="chaps" id="chaps"></div>
+      <label class="opts"><input type="checkbox" id="shuf" checked> Mélanger l'ordre des questions</label>
+    </div>
+
+    <div class="actions">
+      <button class="btn p" id="start">Commencer la formation →</button>
+    </div>
+    <div class="err" id="lerr"></div>
+  </section>
+
+  <!-- ÉCRAN 2 : QUESTION -->
+  <section id="s-quiz" class="hide">
+    <div class="card" id="qcard"></div>
+  </section>
+
+  <!-- ÉCRAN 3 : RÉCAPITULATIF -->
+  <section id="s-recap" class="hide"></section>
+
+  <!-- ÉCRAN 4 : CRÉATION (responsables) -->
+  <section id="s-admin" class="hide">
+    <div class="card" id="adminLock" style="max-width:440px;margin:40px auto">
+      <h2>🔒 Espace responsables</h2>
+      <p class="help" style="margin:0 0 12px">Saisissez le code d'accès communiqué par la commission des jurés.</p>
+      <input type="password" id="adminCode" placeholder="Code d'accès" autocomplete="off">
+      <div class="err" id="adminErr"></div>
+      <div class="actions"><button class="btn p" id="adminGo">Entrer</button></div>
+    </div>
+    <div id="adminBody" class="hide">
+    <div class="hero">
+      <h1>Créer une question</h1>
+      <p>Espace réservé aux responsables de la formation : ajoutez des questions, avec ou sans vidéo. Elles apparaissent immédiatement dans l'onglet Formation.</p>
+      <svg viewBox="0 0 32 32"><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>
+    </div>
+    <div class="card">
+      <h2 id="fTitle">Nouvelle question</h2>
+      <div class="form-grid">
+        <div><label class="f" for="fCh">Chapitre *</label><select id="fCh"></select></div>
+        <div><label class="f" for="fType">Type de question *</label>
+          <select id="fType">
+            <option value="qcm">Choix unique (QCM)</option>
+            <option value="multi">Choix multiples</option>
+            <option value="vf">Vrai / Faux</option>
+            <option value="num">Réponse chiffrée</option>
+            <option value="order">Remise en ordre</option>
+            <option value="open">Question ouverte (mots-clés)</option>
+          </select></div>
+        <div class="full"><label class="f" for="fVideo">Vidéo (facultatif)</label>
+          <input type="text" id="fVideo" placeholder="Lien YouTube, Vimeo ou fichier .mp4 (ex. videos/passe-12.mp4)">
+          <div class="help">Lien YouTube/Vimeo, lien direct vers un .mp4, ou nom d'un fichier placé dans un dossier « videos » à côté de cette page.</div>
+          <div id="fVidPrev" style="margin-top:10px"></div></div>
+        <div class="full"><label class="f" for="fSitu">Mise en situation (facultatif)</label>
+          <textarea id="fSitu" placeholder="ex. Vous êtes juré de rond. Dans la vidéo, le lutteur bleu…" style="min-height:60px"></textarea></div>
+        <div class="full"><label class="f" for="fQ">Question *</label><input type="text" id="fQ"></div>
+        <div class="full" id="fAnswer"></div>
+        <div><label class="f" for="fArt">Article de référence *</label><input type="text" id="fArt" placeholder="ex. Art. 9.2"></div>
+        <div class="full"><label class="f" for="fX">Explication / extrait du règlement *</label>
+          <textarea id="fX" placeholder="Affiché avec la bonne réponse et sur le récapitulatif imprimé"></textarea></div>
+      </div>
+      <div class="err" id="ferr"></div>
+      <div class="actions">
+        <button class="btn p" id="fSave">Enregistrer la question</button>
+        <button class="btn s" id="fTest">Tester cette question</button>
+        <button class="btn s" id="fReset">Vider le formulaire</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Questions ajoutées <span id="mineCount" style="font-weight:400;color:var(--muted)"></span></h2>
+      <div id="mineList"></div>
+      <div class="actions">
+        <button class="btn s" id="fExport">⬇ Exporter (JSON)</button>
+        <label class="btn s" style="cursor:pointer">⬆ Importer (JSON)<input type="file" id="fImport" accept=".json,application/json" hidden></label>
+      </div>
+      <div class="help" id="pubInfo"></div>
+      <div class="help" style="margin-top:8px"><b>Publier pour tous les jurés :</b> les questions ajoutées ici restent dans ce navigateur. Cliquez sur « Exporter », puis déposez le fichier obtenu sur le site à la place de <code>questions-supplementaires.json</code> : l'export contient déjà les questions publiées et les vôtres.</div>
+    </div>
+    </div>
+  </section>
+</main>
+<footer>Plateforme de formation des jurés · Contenu basé sur le Règlement technique AFLS, édition 2026 · Aucune donnée n'est transmise</footer>
+
+<script>
+/* =========================================================
+   DONNÉES : chapitres et questions (Règlement technique 2026)
+   Types : qcm | multi | vf | num | order | open
+   "situ" ajoute une mise en situation au-dessus de la question
+   ========================================================= */
+const CHAPTERS = [
+  {id:1, t:"Jury de classement et jurés", a:"Art. 1, 18–21"},
+  {id:2, t:"Lutteurs, tenue et culotte de lutte", a:"Art. 2, 5"},
+  {id:3, t:"Concours, classement et couronnes", a:"Art. 3, 4, 11, 14–16"},
+  {id:4, t:"Déroulement de la passe", a:"Art. 6–8"},
+  {id:5, t:"Résultats et sanctions", a:"Art. 9–10"},
+  {id:6, t:"Attribution des notes", a:"Art. 12–14"},
+  {id:7, t:"Place de fête", a:"Art. 17"}
+];
+
+const BASE_QUESTIONS = [
+ // ---------- Chapitre 1
+ {ch:1,type:"qcm",q:"De combien de personnes au minimum se compose le jury de classement ?",
+  o:["2","3","4","5"],a:1,art:"Art. 1.1",x:"Le jury de classement se compose d'au moins trois personnes dont l'une fonctionnera comme président."},
+ {ch:1,type:"multi",q:"Quelles tâches incombent au juré de rond ?",
+  o:["Décider en premier de la victoire ou de la défaite","Proposer les notes à attribuer","Être responsable du chronométrage de la passe","Appeler les lutteurs pour la passe","Contrôler les numéroteurs"],a:[0,1,2],art:"Art. 1.2",x:"Le juré de rond dirige la passe, décide en premier de la victoire ou de la défaite, propose les notes et est responsable du chronométrage. L'appel des lutteurs et le contrôle des numéroteurs reviennent aux jurés de table."},
+ {ch:1,type:"vf",q:"Les trois jurés d'un rond de sciure conservent la même fonction pendant toute la fête.",
+  a:false,art:"Art. 1.2",x:"Les trois jurés doivent changer de fonction à plusieurs reprises au cours de la fête."},
+ {ch:1,type:"qcm",q:"Qui convoque et conduit la séance des jurés avant la fête ?",
+  o:["Le chef technique de l'association","Le président du comité d'organisation","Le président du jury de classement","Le juré de rond le plus expérimenté"],a:2,art:"Art. 1.3",x:"Avant chaque fête, les jurés sont convoqués à une séance commune, convoquée et conduite par le président du jury de classement."},
+ {ch:1,type:"qcm",situ:"Pendant la fête, un désaccord surgit entre jurés sur l'application d'un article du règlement technique.",q:"Qui tranche ?",
+  o:["Le juré de rond concerné","Le président du jury de classement","Le comité central de l'AFLS","Un vote des trois jurés du rond"],a:1,art:"Art. 18",x:"En cas de différends sur l'application du « Règlement technique », le président du jury de classement décidera."},
+
+ // ---------- Chapitre 2
+ {ch:2,type:"qcm",q:"Quelle est la tenue réglementaire du lutteur gymnaste ?",
+  o:["Chemise colorée et pantalon long foncé","Maillot de corps blanc à manches courtes et pantalon long blanc","Maillot blanc et short blanc","Chemise blanche et pantalon foncé"],a:1,art:"Art. 2.2",x:"Lutteur gymnaste : maillot de corps blanc à courtes manches et pantalon long blanc, sans élastiques au bas des pantalons."},
+ {ch:2,type:"vf",q:"Un lutteur berger peut porter un pantalon long foncé muni d'élastiques au bas des jambes.",
+  a:false,art:"Art. 2.2",x:"Lutteur berger : chemise résistante, colorée mais non voyante, pantalon long de couleur foncée, sans élastiques au bas des pantalons."},
+ {ch:2,type:"qcm",situ:"Fête à couronnes. Passe entre Thomas Müller et Andreas Müller.",q:"Quel lutteur met la culotte claire (couleur nature) ?",
+  o:["Thomas Müller","Andreas Müller","Le plus jeune des deux","Le jury de classement tire au sort"],a:1,art:"Art. 5.3",x:"Le lutteur dont le nom de famille vient en premier dans l'ordre alphabétique met la culotte claire. Si les noms sont identiques, c'est le prénom qui décide : Andreas avant Thomas."},
+ {ch:2,type:"open",q:"Dans quelle matière la culotte de lutte est-elle confectionnée ?",hint:"Réponse courte",
+  keys:[["jute"]],sol:"En toile de jute, avec une ceinture en cuir.",art:"Art. 5.1",x:"Les culottes de lutte sont confectionnées en toile de jute et munies d'une ceinture en cuir."},
+ {ch:2,type:"multi",q:"Avant chaque prise, que doit-on vérifier sur la culotte de lutte ?",
+  o:["La ceinture en cuir est suffisamment serrée","Le bout de la ceinture est dans les passants","Les canons sont retroussés","Les canons sont déroulés jusqu'au genou"],a:[0,1,2],art:"Art. 5.4",x:"Avant chaque prise, la ceinture en cuir doit être serrée suffisamment, le bout de la ceinture dans les passants et les canons retroussés."},
+
+ // ---------- Chapitre 3
+ {ch:3,type:"num",q:"Quelle est la durée minimale recommandée d'une passe pour les actifs ?",unit:"minutes",a:5,art:"Art. 3.2",x:"La durée recommandée pour les actifs est de minimum cinq minutes, respectivement quatre minutes pour les espoirs."},
+ {ch:3,type:"qcm",q:"Sur quelle base le jury de classement forme-t-il les paires de la première passe ?",
+  o:["Par tirage au sort","Selon la qualification des lutteurs (palmarès, niveau)","Selon l'ordre alphabétique","Selon l'âge des lutteurs"],a:1,art:"Art. 4",x:"Le classement pour la première passe est établi en fonction de la qualification (palmarès, niveau). Ensuite, selon les points obtenus, en évitant que des lutteurs d'un même club s'affrontent."},
+ {ch:3,type:"qcm",q:"Que rapporte une passe supplémentaire victorieuse ?",
+  o:["Rien, elle ne compte pas","Un quart de point","Un demi-point","Un point entier"],a:1,art:"Art. 11",x:"Toute passe supplémentaire victorieuse sera créditée d'un quart de point. Le jury de classement doit s'assurer que ce quart de point ne donne pas accès au dernier rang des couronnes."},
+ {ch:3,type:"num",q:"Lors de la Fête fédérale (FFLS), après combien de passes la passe finale est-elle désignée ?",unit:"passes",a:7,art:"Art. 14.1",x:"La passe finale oppose les deux lutteurs ayant le plus de points après cinq passes, respectivement sept passes lors de la FFLS."},
+ {ch:3,type:"num",q:"Quelle différence de points minimale entre les deux premiers permet une passe supplémentaire en vue de la passe finale ?",unit:"points",a:1.5,art:"Art. 14.3",x:"Une passe supplémentaire en vue de la passe finale n'est admissible que s'il y a une différence d'au moins 1.50 entre les deux lutteurs comptant le plus grand nombre de points."},
+ {ch:3,type:"num",q:"Quel pourcentage des participants (à la première passe) reçoit en principe une couronne ?",unit:"%",a:15,art:"Art. 16.2",x:"Le nombre de couronnes doit être de 15 % des participants. Si ce n'est pas atteint, on prend le rang suivant, sans dépasser 18 %."},
+ {ch:3,type:"qcm",situ:"Fête 2026. Deux lutteurs ont le même total de points et les mêmes signes (+, −, 0) : Zbinden et Aebi.",q:"Comment sont-ils classés ?",
+  o:["Aebi avant Zbinden (ordre A → Z)","Zbinden avant Aebi (ordre Z → A)","Ex-aequo au même rang","Selon le résultat de leur dernière passe"],a:0,art:"Art. 15",x:"En cas d'égalité de points et de signes : ordre alphabétique. Années paires de A à Z, années impaires de Z à A. 2026 est une année paire."},
+
+ // ---------- Chapitre 4
+ {ch:4,type:"order",q:"Remettez dans l'ordre la séquence d'engagement des prises.",
+  o:["La main droite saisit jusqu'au milieu du dos","Les deux lutteurs font un pas en retrait","La main gauche saisit depuis le bas du canon droit retroussé","Le juré donne le « bon »"],art:"Art. 6.2",x:"D'abord la main droite jusqu'au milieu du dos, puis un pas en retrait, puis la main gauche au canon droit retroussé. Le « bon » du juré détermine le début de la passe."},
+ {ch:4,type:"open",q:"Quel mot le juré de rond prononce-t-il pour donner le début de la passe ?",hint:"Un seul mot",
+  keys:[["bon"]],sol:"« Bon »",art:"Art. 6.2",x:"Le « bon » du juré détermine le début de la passe. Le descriptif est répété lors de chaque nouvelle prise."},
+ {ch:4,type:"multi",q:"Dans quels cas le juré doit-il dire « halte » ?",
+  o:["Les lutteurs atteignent debout la limite du rond de sciure","Aucun lutteur n'a de prises","Il y a un risque d'accident","Un lutteur se retrouve au sol sur le ventre","Le public siffle une décision"],a:[0,1,2],art:"Art. 7.1",x:"Notamment : risque d'accident ou accident, aucun lutteur n'a de prises, limite du rond atteinte debout, prise brutale ou dangereuse, déduction de point nécessaire."},
+ {ch:4,type:"multi",q:"Lesquelles sont des prises dangereuses et brutales ?",
+  o:["Prise au cou (étranglement)","Pression avec le coude sur la colonne vertébrale","Pression sur les articulations par effet de levier","Pousser sur la tête en position de pont libre","Prise à la culotte avec la main gauche"],a:[0,1,2,3],art:"Art. 7.2",x:"Sont dangereuses : pousser sur la tête en pont libre, prise au cou, prise fermée, pression sur les articulations par levier, pression du coude sur la colonne vertébrale."},
+ {ch:4,type:"vf",q:"Lorsque le juré autorise un lutteur à aller à la fontaine, le chronomètre continue de tourner.",
+  a:false,art:"Art. 7.3",x:"À chaque interruption de la passe, le temps doit être arrêté (arrêt médical, autorisation d'aller à la fontaine, annonce d'une déduction, demande de s'habiller correctement…)."},
+ {ch:4,type:"qcm",situ:"Un lutteur se blesse. Les trois jurés fixent une durée d'interruption. Passé ce délai, il ne peut toujours pas reprendre.",q:"Que se passe-t-il ?",
+  o:["La passe est déclarée nulle","Il est déclaré blessé et éliminé","La passe est reportée en fin de fête","Son adversaire reçoit 10.00"],a:1,art:"Art. 7.4",x:"Si le lutteur ne peut pas reprendre le combat après le temps déterminé, il sera déclaré blessé et sera éliminé."},
+ {ch:4,type:"qcm",q:"Quel mot le juré prononce-t-il pour terminer une passe nulle ?",
+  o:["« Halte »","« Bon »","« Terminé »","« Fin »"],a:2,art:"Art. 8",x:"Une passe est terminée lorsque le juré a prononcé « bon » (résultat) ou « terminé » (passe nulle)."},
+ {ch:4,type:"qcm",q:"À la fin de la passe, que fait le vainqueur ?",
+  o:["Il salue le public","Il essuie la sciure du dos du vaincu","Il se présente à la table des jurés","Il remet la culotte au juré"],a:1,art:"Art. 8",x:"Dès la fin de la passe, les lutteurs se séparent par une poignée de main. Le vainqueur essuie la sciure du dos du vaincu."},
+
+ // ---------- Chapitre 5
+ {ch:5,type:"vf",situ:"Un lutteur touche simultanément le sol avec les deux côtés du dos jusqu'au milieu des omoplates, à partir des fesses.",q:"Le combat est-il décidé ?",
+  a:true,art:"Art. 9.1",x:"Un combat est décidé lorsqu'un lutteur touche le sol avec tout le dos, avec le bas du dos ou avec les deux côtés jusqu'au milieu des omoplates (à partir des fesses), simultanément."},
+ {ch:5,type:"vf",q:"L'extrémité libre de la ceinture en cuir est considérée comme une prise à la culotte.",
+  a:false,art:"Art. 9.2",x:"L'extrémité libre de la ceinture n'est pas considérée comme prise à la culotte."},
+ {ch:5,type:"qcm",q:"Quelle prise permet un résultat valable sans prise à la culotte ?",
+  o:["Le Brienz","Le Schlungg","Le Bodenlätz","Le tour de hanche"],a:2,art:"Art. 9.2",x:"Le vainqueur doit tenir l'adversaire au moins par une prise à la culotte ou à la partie fixe de la ceinture. Le « Bodenlätz » fait exception."},
+ {ch:5,type:"open",q:"Un lutteur persiste dans la position de pont libre. Comment le juré compte-t-il ?",hint:"Écrivez le décompte complet",
+  keys:[["21","vingt et un","vingt-et-un"],["22","vingt-deux","vingt deux"],["23","vingt-trois","vingt trois"],["bon"]],sol:"« 21, 22, 23, bon »",art:"Art. 9.2",x:"Si un lutteur persiste dans la position de pont libre (appui sur la tête et les pieds), il doit être compté « 21, 22, 23, bon »."},
+ {ch:5,type:"qcm",situ:"Pendant la passe, un lutteur insulte le juré de rond.",q:"Quelle sanction s'applique ?",
+  o:["Un avertissement d'abord","Un abaissement direct de la note","L'exclusion immédiate de la fête","Aucune, si la passe se poursuit"],a:1,art:"Art. 10.2",x:"Le non-respect des instructions des jurés ou les insultes envers les jurés entraîneront un abaissement direct de la note."},
+ {ch:5,type:"qcm",q:"En cas de complicité de passe (arrangement), qui décide en finalité des mesures ?",
+  o:["Le juré de rond","Les jurés de table","Le jury de classement","Le comité central"],a:2,art:"Art. 10.3",x:"Le juré de rond annonce ce comportement au jury de classement, qui décidera des mesures. Les lutteurs fautifs peuvent être exclus et rayés de la liste des résultats."},
+
+ // ---------- Chapitre 6
+ {ch:6,type:"multi",q:"Quels critères servent à l'attribution des notes ?",
+  o:["Le lutteur accepte la compétition et prend des risques délibérés","Une lutte correcte en attaque et en défense","La maîtrise technique dans l'exécution des prises","Le palmarès du lutteur","Le soutien du public"],a:[0,1,2],art:"Art. 12",x:"Critères : acceptation de la compétition et prise de risques, lutte correcte en attaque et en défense, vaste connaissance et bonne maîtrise technique des prises."},
+ {ch:6,type:"qcm",q:"Dans quelle fourchette est notée une passe nulle ?",
+  o:["8.50 – 8.75","8.75 – 9.00","9.00 – 9.50","9.75 – 10.00"],a:1,art:"Art. 13",x:"Passe gagnée (+) : 9.75 – 10.00 ; passe nulle (−) : 8.75 – 9.00 ; passe perdue (0) : 8.50 – 8.75."},
+ {ch:6,type:"qcm",situ:"Un lutteur plaque son adversaire au sol en une seule fois, sans maintien de pression.",q:"Quelle note proposez-vous ?",
+  o:["9.75","9.875","10.00","Selon la durée de la passe"],a:2,art:"Art. 13",x:"La note 10.00 est attribuée si l'adversaire est plaqué au sol ou si la prise est effectuée en une seule fois sans maintien de pression."},
+ {ch:6,type:"num",q:"Quelle note reçoit le perdant de la passe finale ?",unit:"",a:8.75,art:"Art. 14.2",x:"Passe finale : gagnée = 10.00 ; nulle = art. 12 et 13 sans modification ; perdue = 8.75. L'art. 10 s'applique sans conditions."},
+ {ch:6,type:"vf",q:"La note maximale de 9.00 pour une passe nulle est la note habituelle d'une passe nulle disputée correctement.",
+  a:false,art:"Art. 13",x:"Les notes maximales de 9.00 (nulle) et 8.75 (perdue) sont appliquées exceptionnellement, pour un travail au-dessus de la moyenne, de haute qualité technique et offensive."},
+
+ // ---------- Chapitre 7
+ {ch:7,type:"num",q:"Quel est le diamètre d'un rond de sciure pour une fête à caractère fédéral ?",unit:"mètres",a:14,art:"Art. 17.1",x:"Fêtes à caractère fédéral : diamètre 14 m, hauteur minimale 15 cm roulée, soit 35 m³ de sciure en vrac."},
+ {ch:7,type:"qcm",q:"Quelle est la hauteur minimale de sciure roulée dans un rond ?",
+  o:["10 cm","12 cm","15 cm","20 cm"],a:2,art:"Art. 17.1",x:"Quel que soit le type de fête, la hauteur minimale est de 15 cm roulée."},
+ {ch:7,type:"qcm",situ:"Vous préparez une fête pour garçons lutteurs (8 à 15 ans).",q:"Quelles dimensions pour le rond de sciure ?",
+  o:["Ø 8 m, 10 m³ de sciure","Ø 10 m, 16 m³ de sciure","Ø 12 m, 23 m³ de sciure","Ø 14 m, 35 m³ de sciure"],a:0,art:"Art. 17.1",x:"Fêtes pour garçons lutteurs (8 à 15 ans) : diamètre de 8 m, hauteur minimale 15 cm roulée, 10 m³ de sciure en vrac."},
+ {ch:7,type:"open",q:"Qui libère la place de fête avant la manifestation ?",hint:"Réponse courte",
+  keys:[["comite"]],sol:"Le comité du club, de la section ou de l'association responsable.",art:"Art. 17.3",x:"La place de fête doit être libérée par le comité du club, de la section ou de l'association responsable, après visite et si toutes les conditions sont remplies."}
+];
+
+/* Questions ajoutées par les responsables (onglet Création), stockées dans ce navigateur */
+const STORE = "jures-lutte-questions-v1";
+let CUSTOM = (() => { try { return JSON.parse(localStorage.getItem(STORE)) || []; } catch(e){ return []; } })();
+/* Questions publiées pour tous : fichier questions-supplementaires.json déposé à côté de cette page */
+let PUBLISHED = [];
+let QUESTIONS = BASE_QUESTIONS.concat(CUSTOM);
+function saveCustom(){
+  try { localStorage.setItem(STORE, JSON.stringify(CUSTOM)); } catch(e){}
+  QUESTIONS = BASE_QUESTIONS.concat(PUBLISHED, CUSTOM);
+  renderChapters();
+}
+const validQ = q => q && typeof q.q==="string" && typeof q.type==="string" && CHAPTERS.some(c=>c.id===+q.ch);
+function loadPublished(){
+  fetch("questions-supplementaires.json", {cache:"no-store"})
+    .then(r => r.ok ? r.json() : [])
+    .then(a => {
+      if (!Array.isArray(a)) return;
+      PUBLISHED = a.filter(validQ);
+      const ids = new Set(PUBLISHED.map(q=>q.id));
+      CUSTOM = CUSTOM.filter(c => !ids.has(c.id));   // une question publiée n'est plus « locale »
+      saveCustom(); renderMine();
+    })
+    .catch(() => {});   // fichier absent ou page ouverte en local : on continue sans
+}
+
+/* Code d'accès de l'onglet Création : À MODIFIER avant la mise en ligne.
+   Protection légère (le code est lisible dans le source de la page). */
+const ADMIN_CODE = "AFLS2026";
+
+/* Vidéo : YouTube, Vimeo ou fichier .mp4 / .webm (lien ou fichier local à côté de la page) */
+function videoHTML(u){
+  u = String(u||"").trim(); if (!u) return "";
+  let m = u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+  if (m) return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}?rel=0" allow="fullscreen; picture-in-picture" allowfullscreen title="Vidéo de la question"></iframe></div>`;
+  m = u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (m) return `<div class="video"><iframe src="https://player.vimeo.com/video/${m[1]}" allow="fullscreen; picture-in-picture" allowfullscreen title="Vidéo de la question"></iframe></div>`;
+  return `<div class="video"><video controls playsinline preload="metadata" src="${esc(u)}"></video></div>`;
+}
+
+const MAX_TRIES = 2;            // 2 essais, puis la solution est donnée
+const PTS = {first:2, second:1, revealed:0};
+
+/* ========================= ÉTAT ========================= */
+let user = {}, list = [], idx = 0, tries = 0, results = [], cur = null, sel = null, done = false;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[«»"'’.,;:!?()]/g," ").replace(/\s+/g," ").trim();
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const typeLabel = {qcm:"Choix unique",multi:"Choix multiples",vf:"Vrai / Faux",num:"Réponse chiffrée",order:"Remise en ordre",open:"Question ouverte"};
+const fmt = n => String(n).replace(".", ",");
+
+/* ===================== ÉCRAN CONNEXION ===================== */
+function renderChapters(){
+  const total = QUESTIONS.length;
+  let h = `<label class="chap all on" data-all><input type="checkbox" checked><div class="num">★</div><div><b>Règlement complet</b><small>Tous les chapitres · ${total} questions</small></div></label>`;
+  CHAPTERS.forEach(c => {
+    const n = QUESTIONS.filter(q => q.ch===c.id).length;
+    h += `<label class="chap" data-ch="${c.id}"><input type="checkbox"><div class="num">${c.id}</div><div><b>${esc(c.t)}</b><small>${c.a} · ${n} questions</small></div></label>`;
+  });
+  $("#chaps").innerHTML = h;
+  $("#chaps").querySelectorAll(".chap").forEach(el => el.addEventListener("click", e => {
+    e.preventDefault();
+    const all = $("#chaps .all");
+    if (el.dataset.all !== undefined){
+      $("#chaps").querySelectorAll(".chap").forEach(c => c.classList.remove("on"));
+      all.classList.add("on");
+    } else {
+      all.classList.remove("on");
+      el.classList.toggle("on");
+      if (!$("#chaps").querySelector(".chap.on")) all.classList.add("on");
+    }
+  }));
+}
+
+function start(chapIds, retryList){
+  if (!retryList){
+    user = {fn:$("#fn").value.trim(), ln:$("#ln").value.trim(), cl:$("#cl").value.trim()};
+    if (!user.fn || !user.ln){ $("#lerr").textContent = "Merci d'indiquer votre prénom et votre nom (pour le récapitulatif)."; user={}; return; }
+    const all = $("#chaps .all").classList.contains("on");
+    user.chaps = all ? CHAPTERS.map(c=>c.id) : [...$("#chaps").querySelectorAll(".chap.on[data-ch]")].map(e=>+e.dataset.ch);
+    list = QUESTIONS.filter(q => user.chaps.includes(q.ch));
+    if ($("#shuf").checked) list = shuffle(list);
+  } else list = retryList;
+  $("#who").innerHTML = `${esc(user.fn)} ${esc(user.ln)}${user.cl?`<br><span style="opacity:.8">${esc(user.cl)}</span>`:""}`;
+  idx = 0; results = [];
+  show("quiz"); renderQ();
+}
+
+let trainScreen = "login";
+function show(s){
+  if (s!=="admin") trainScreen = s;
+  ["login","quiz","recap","admin"].forEach(x => $("#s-"+x).classList.toggle("hide", x!==s));
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("on", (t.dataset.tab==="admin") === (s==="admin")));
+  $("#bar").parentElement.style.visibility = s==="admin" ? "hidden" : "visible";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => show(t.dataset.tab==="admin" ? "admin" : trainScreen));
+function adminUnlocked(){ try { return sessionStorage.getItem("jures-admin")==="1"; } catch(e){ return window._adm===1; } }
+function refreshLock(){
+  const ok = adminUnlocked();
+  $("#adminLock").classList.toggle("hide", ok); $("#adminBody").classList.toggle("hide", !ok);
+}
+$("#adminGo").onclick = () => {
+  if ($("#adminCode").value.trim() === ADMIN_CODE){
+    try { sessionStorage.setItem("jures-admin","1"); } catch(e){ window._adm = 1; }
+    $("#adminErr").textContent = ""; refreshLock();
+  } else { $("#adminErr").textContent = "Code incorrect."; $("#adminCode").select(); }
+};
+$("#adminCode").addEventListener("keydown", e => { if (e.key==="Enter") $("#adminGo").click(); });
+
+/* ======================== QUESTION ======================== */
+function renderQ(){
+  cur = list[idx]; tries = 0; done = false;
+  sel = cur.type==="multi" ? new Set() : null;
+  $("#bar").style.width = (idx/list.length*100)+"%";
+  const ch = CHAPTERS.find(c=>c.id===cur.ch);
+  let h = `<div class="qmeta"><span class="pill r">Ch. ${ch.id} · ${esc(ch.t)}</span><span class="pill">${typeLabel[cur.type]}</span><span class="cnt">Question ${idx+1} / ${list.length}</span></div>`;
+  if (cur.video) h += `<div class="video-lbl">🎬 Regardez la séquence</div>${videoHTML(cur.video)}`;
+  if (cur.situ) h += `<div class="situ"><b>Mise en situation</b>${esc(cur.situ)}</div>`;
+  h += `<p class="q">${esc(cur.q)}</p>`;
+  if (cur.type==="multi") h += `<p class="hint">Cochez toutes les bonnes réponses.</p>`;
+  if (cur.hint) h += `<p class="hint">${esc(cur.hint)}</p>`;
+  h += `<div id="ans"></div><div id="fb"></div>
+    <div class="actions" style="align-items:center">
+      <button class="btn p" id="go">Valider</button>
+      <div class="tries" id="tries" style="margin-left:auto"></div>
+    </div>`;
+  $("#qcard").innerHTML = h;
+  renderAnswerArea();
+  drawTries();
+  $("#go").onclick = onGo;
+}
+
+function renderAnswerArea(){
+  const A = $("#ans"), L="ABCDEFG";
+  if (cur.type==="qcm" || cur.type==="multi"){
+    cur._ord = cur._ord || shuffle(cur.o.map((_,i)=>i));
+    A.innerHTML = cur._ord.map((i,k)=>`<button class="choice ${cur.type}" data-i="${i}"><span class="k">${cur.type==="multi"?"":L[k]}</span><span>${esc(cur.o[i])}</span></button>`).join("");
+    A.querySelectorAll(".choice").forEach(b => b.onclick = () => {
+      if (done) return; const i=+b.dataset.i;
+      if (cur.type==="qcm"){ sel=i; A.querySelectorAll(".choice").forEach(c=>c.classList.toggle("sel",c===b)); }
+      else { sel.has(i)?sel.delete(i):sel.add(i); b.classList.toggle("sel"); b.querySelector(".k").textContent = sel.has(i)?"✓":""; }
+    });
+  } else if (cur.type==="vf"){
+    A.innerHTML = `<div class="vf"><button class="choice" data-v="1">Vrai</button><button class="choice" data-v="0">Faux</button></div>`;
+    A.querySelectorAll(".choice").forEach(b => b.onclick = () => { if(done)return; sel = b.dataset.v==="1"; A.querySelectorAll(".choice").forEach(c=>c.classList.toggle("sel",c===b)); });
+  } else if (cur.type==="num"){
+    A.innerHTML = `<div class="num-in"><input type="text" inputmode="decimal" id="numv" placeholder="Votre réponse"><span>${esc(cur.unit||"")}</span></div>`;
+    $("#numv").focus();
+  } else if (cur.type==="open"){
+    A.innerHTML = `<input type="text" id="openv" placeholder="Votre réponse…" autocomplete="off">`;
+    $("#openv").focus();
+  } else if (cur.type==="order"){
+    if (!sel){ do { sel = shuffle(cur.o.map((_,i)=>i)); } while (sel.every((v,i)=>v===i)); }
+    drawOrder();
+  }
+  A.querySelectorAll("input").forEach(i => i.addEventListener("keydown", e => { if(e.key==="Enter") $("#go").click(); }));
+}
+
+function drawOrder(){
+  $("#ans").innerHTML = `<ol class="ord">${sel.map((i,k)=>`<li><span class="n">${k+1}</span><span class="t">${esc(cur.o[i])}</span>
+    <button data-k="${k}" data-d="-1" ${k===0||done?"disabled":""} aria-label="Monter">↑</button>
+    <button data-k="${k}" data-d="1" ${k===sel.length-1||done?"disabled":""} aria-label="Descendre">↓</button></li>`).join("")}</ol>`;
+  $("#ans").querySelectorAll("button").forEach(b => b.onclick = () => {
+    const k=+b.dataset.k, d=+b.dataset.d; [sel[k],sel[k+d]]=[sel[k+d],sel[k]]; drawOrder();
+  });
+}
+
+function drawTries(){
+  $("#tries").innerHTML = `Essai ${Math.min(tries+1,MAX_TRIES)} / ${MAX_TRIES} ` + Array.from({length:MAX_TRIES},(_,i)=>`<i class="${i<tries?"used":""}"></i>`).join("");
+}
+
+function readAnswer(){
+  switch(cur.type){
+    case "qcm": return sel===null ? null : {ok: sel===cur.a, txt: cur.o[sel]};
+    case "multi": return sel.size===0 ? null : {ok: sel.size===cur.a.length && cur.a.every(i=>sel.has(i)), txt: [...sel].sort().map(i=>cur.o[i]).join(" ; ")};
+    case "vf": return sel===null ? null : {ok: sel===cur.a, txt: sel?"Vrai":"Faux"};
+    case "num": { const v=$("#numv").value.trim(); if(!v) return null; const n=parseFloat(v.replace(",",".")); return {ok: Math.abs(n-cur.a)<0.001, txt: v+(cur.unit?" "+cur.unit:"")}; }
+    case "open": { const v=$("#openv").value.trim(); if(!v) return null; const t=" "+norm(v)+" "; return {ok: cur.keys.every(g=>g.some(k=>t.includes(" "+norm(k)+" ")||(norm(k).length>4&&t.includes(norm(k))))), txt: v}; }
+    case "order": return {ok: sel.every((v,i)=>v===i), txt: sel.map(i=>cur.o[i]).join(" → ")};
+  }
+}
+
+function solutionText(q){
+  switch(q.type){
+    case "qcm": return q.o[q.a];
+    case "multi": return q.a.map(i=>q.o[i]).join(" ; ");
+    case "vf": return q.a?"Vrai":"Faux";
+    case "num": return fmt(q.a)+(q.unit?" "+q.unit:"");
+    case "open": return q.sol;
+    case "order": return q.o.join(" → ");
+  }
+}
+
+function onGo(){
+  if (done){ next(); return; }
+  const r = readAnswer();
+  if (!r){ flash("Sélectionnez ou saisissez une réponse."); return; }
+  tries++;
+  if (r.ok){
+    finish(tries===1?"first":"second", r.txt);
+    $("#fb").innerHTML = `<div class="fb ok"><h4>✓ Bonne réponse${tries>1?" au 2ᵉ essai":""} !</h4>${esc(cur.x)}<br><span class="art">📖 ${cur.art}</span></div>`;
+  } else if (tries < MAX_TRIES){
+    $("#fb").innerHTML = `<div class="fb warn"><h4>✗ Ce n'est pas la bonne réponse</h4>Relisez la question et faites une deuxième tentative.</div>`;
+    drawTries();
+    if (cur.type==="num") $("#numv").select();
+    if (cur.type==="open") $("#openv").select();
+  } else {
+    finish("revealed", r.txt);
+    $("#fb").innerHTML = `<div class="fb bad"><h4>Voici la bonne réponse : ${esc(solutionText(cur))}</h4>
+      <span class="art">📖 Règlement technique 2026, ${cur.art}</span><blockquote>${esc(cur.x)}</blockquote></div>`;
+  }
+}
+
+function flash(m){ $("#fb").innerHTML = `<div class="fb warn">${esc(m)}</div>`; }
+
+function finish(status, given){
+  done = true;
+  results.push({q:cur, status, given, tries, pts:PTS[status]});
+  // Mise en évidence des choix
+  if (cur.type==="qcm"||cur.type==="multi"){
+    const good = cur.type==="qcm"?[cur.a]:cur.a;
+    $("#ans").querySelectorAll(".choice").forEach(b => { const i=+b.dataset.i; b.disabled=true;
+      if (good.includes(i)) b.classList.add("good"); else if (b.classList.contains("sel")) b.classList.add("wrong"); });
+  } else if (cur.type==="vf"){
+    $("#ans").querySelectorAll(".choice").forEach(b => { b.disabled=true; if ((b.dataset.v==="1")===cur.a) b.classList.add("good"); else if (b.classList.contains("sel")) b.classList.add("wrong"); });
+  } else if (cur.type==="order"){ if (status==="revealed") sel = cur.o.map((_,i)=>i); drawOrder(); }
+  else $("#ans").querySelectorAll("input").forEach(i => i.disabled = true);
+  $("#go").textContent = idx===list.length-1 ? "Voir mon récapitulatif →" : "Question suivante →";
+  $("#tries").innerHTML = "";
+  $("#go").focus();
+}
+
+function next(){ idx++; if (idx<list.length) renderQ(); else recap(); }
+
+/* ======================== RÉCAPITULATIF ======================== */
+function recap(){
+  $("#bar").style.width = "100%";
+  const max = results.length*PTS.first, got = results.reduce((s,r)=>s+r.pts,0);
+  const pc = Math.round(got/max*100);
+  const c = {first:0,second:0,revealed:0}; results.forEach(r=>c[r.status]++);
+  const C = 2*Math.PI*52, ring = `<svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#E6E3E1" stroke-width="12"/>
+    <circle cx="60" cy="60" r="52" fill="none" stroke="#D52B1E" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C*pc/100} ${C}" transform="rotate(-90 60 60)"/>
+    <text x="60" y="66" text-anchor="middle" font-size="26" font-weight="700" fill="#1B1B1F">${pc}%</text></svg>`;
+  const verdict = pc>=80 ? "Excellent, vous êtes prêt pour le rond de sciure !" : pc>=60 ? "Bonne base : révisez les articles signalés en rouge." : "À retravailler : relisez le règlement technique avant la prochaine fête.";
+  const chs = [...new Set(results.map(r=>r.q.ch))].sort((a,b)=>a-b);
+  const bars = chs.map(id => { const rs=results.filter(r=>r.q.ch===id), p=Math.round(rs.reduce((s,r)=>s+r.pts,0)/(rs.length*2)*100), ch=CHAPTERS.find(c=>c.id===id);
+    return `<div class="b"><span>${id}. ${esc(ch.t)}</span><div class="tr"><i style="width:${p}%"></i></div><span class="pc">${p}%</span></div>`; }).join("");
+  const lbl = {first:"✓ 1ᵉʳ essai",second:"✓ 2ᵉ essai",revealed:"✗ Réponse donnée"};
+  const items = results.map((r,i)=>`<div class="rq ${r.status}">
+      <div class="top"><small style="color:var(--muted)">Q${i+1} · Ch. ${r.q.ch} · ${r.q.art}</small><span class="tag ${r.status}">${lbl[r.status]} · ${r.pts} pt</span></div>
+      <div class="qq">${r.q.video?`<span class="badge-v">🎬 vidéo</span> `:""}${r.q.situ?`<em style="font-weight:400">${esc(r.q.situ)}</em><br>`:""}${esc(r.q.q)}</div>
+      <div class="l"><b>Votre réponse :</b> ${esc(r.given)}</div>
+      ${r.status!=="first"?`<div class="l"><b>Bonne réponse :</b> ${esc(solutionText(r.q))}</div>`:""}
+      <div class="l" style="color:var(--muted)"><b>Référence :</b> ${r.q.art}, ${esc(r.q.x)}</div>
+    </div>`).join("");
+  const missed = results.filter(r=>r.status!=="first").map(r=>r.q);
+  const d = new Date().toLocaleDateString("fr-CH",{day:"2-digit",month:"long",year:"numeric"});
+  $("#s-recap").innerHTML = `
+    <div class="print-head"><svg><use href="#ch"/></svg><div><b>Formation des jurés · Lutte suisse</b><br><small>Récapitulatif · Règlement technique 2026</small></div></div>
+    <div class="card">
+      <div class="score">${ring}<div>
+        <h2>${esc(user.fn)} ${esc(user.ln)}</h2>
+        <div style="color:var(--muted);font-size:14px">${user.cl?esc(user.cl)+" · ":""}${d} · ${results.length} questions · ${got} / ${max} points</div>
+        <div style="margin-top:6px;font-weight:600">${verdict}</div>
+        <div class="stats"><span class="stat g">${c.first} au 1ᵉʳ essai</span><span class="stat o">${c.second} au 2ᵉ essai</span><span class="stat r">${c.revealed} réponse(s) donnée(s)</span></div>
+      </div></div>
+    </div>
+    <div class="card bars"><h2>Résultat par chapitre</h2>${bars}</div>
+    <div class="actions noprint" style="margin:0 0 16px">
+      <button class="btn p" onclick="window.print()">🖨 Imprimer / PDF</button>
+      ${missed.length?`<button class="btn s" id="retry">Refaire les ${missed.length} question(s) manquée(s)</button>`:""}
+      <button class="btn s" onclick="location.reload()">Nouvelle session</button>
+    </div>
+    <div class="card"><h2>Détail des réponses</h2>${items}</div>`;
+  if (missed.length) $("#retry").onclick = () => start(null, shuffle(missed));
+  show("recap");
+}
+
+/* ======================== CRÉATION (responsables) ======================== */
+let editId = null;
+$("#fCh").innerHTML = CHAPTERS.map(c => `<option value="${c.id}">${c.id}. ${esc(c.t)}</option>`).join("");
+
+function optRow(type, text="", checked=false){
+  const t = type==="qcm" ? "radio" : "checkbox";
+  return `<div class="optrow"><input type="text" class="fOpt" value="${esc(text)}" placeholder="Réponse proposée">
+    <label><input type="${t}" name="fGood" class="fGood" ${checked?"checked":""}> correcte</label></div>`;
+}
+function renderAnswerFields(q){
+  const type = $("#fType").value, F = $("#fAnswer");
+  if (type==="qcm" || type==="multi"){
+    const o = q && q.o ? q.o : ["","","",""];
+    const good = q ? (type==="qcm" ? [q.a] : q.a) : [];
+    F.innerHTML = `<label class="f">Réponses proposées * <span style="font-weight:400">(${type==="qcm"?"cochez la bonne réponse":"cochez toutes les bonnes réponses"})</span></label>
+      <div id="fOpts">${o.map((t,i)=>optRow(type,t,good.includes(i))).join("")}</div>
+      <button class="btn s" id="fAddOpt" type="button" style="padding:8px 14px;margin-top:4px">+ Ajouter une réponse</button>`;
+    $("#fAddOpt").onclick = () => $("#fOpts").insertAdjacentHTML("beforeend", optRow(type));
+  } else if (type==="vf"){
+    F.innerHTML = `<label class="f" for="fVF">Bonne réponse *</label><select id="fVF"><option value="1">Vrai</option><option value="0">Faux</option></select>`;
+    if (q) $("#fVF").value = q.a ? "1" : "0";
+  } else if (type==="num"){
+    F.innerHTML = `<div class="form-grid"><div><label class="f" for="fNum">Valeur exacte *</label><input type="text" inputmode="decimal" id="fNum" value="${q?fmt(q.a):""}"></div>
+      <div><label class="f" for="fUnit">Unité</label><input type="text" id="fUnit" placeholder="ex. mètres, %, points" value="${q?esc(q.unit||""):""}"></div></div>`;
+  } else if (type==="order"){
+    F.innerHTML = `<label class="f" for="fSteps">Étapes dans le BON ordre * <span style="font-weight:400">(une par ligne : elles seront mélangées pour le juré)</span></label>
+      <textarea id="fSteps">${q?esc(q.o.join("\n")):""}</textarea>`;
+  } else if (type==="open"){
+    F.innerHTML = `<div class="form-grid">
+      <div class="full"><label class="f" for="fKeys">Mots-clés attendus *</label>
+        <textarea id="fKeys" placeholder="bon&#10;21 / vingt et un">${q?esc(q.keys.map(g=>g.join(" / ")).join("\n")):""}</textarea>
+        <div class="help">Une ligne par élément obligatoire. Plusieurs variantes acceptées sur une même ligne, séparées par « / ». Accents et majuscules sont ignorés.</div></div>
+      <div class="full"><label class="f" for="fSol">Réponse modèle affichée *</label><input type="text" id="fSol" value="${q?esc(q.sol):""}"></div></div>`;
+  }
+}
+
+function readForm(){
+  const type = $("#fType").value;
+  const q = {ch:+$("#fCh").value, type, q:$("#fQ").value.trim(), art:$("#fArt").value.trim(), x:$("#fX").value.trim()};
+  const situ = $("#fSitu").value.trim(), video = $("#fVideo").value.trim();
+  if (situ) q.situ = situ; if (video) q.video = video;
+  if (!q.q || !q.art || !q.x) return "Complétez la question, l'article et l'explication.";
+  if (type==="qcm" || type==="multi"){
+    const rows = [...document.querySelectorAll("#fOpts .optrow")].map(r => ({t:r.querySelector(".fOpt").value.trim(), g:r.querySelector(".fGood").checked})).filter(r => r.t);
+    if (rows.length<2) return "Indiquez au moins deux réponses proposées.";
+    const good = rows.map((r,i)=>r.g?i:-1).filter(i=>i>=0);
+    if (!good.length) return "Cochez au moins une bonne réponse.";
+    q.o = rows.map(r=>r.t); q.a = type==="qcm" ? good[0] : good;
+  } else if (type==="vf"){ q.a = $("#fVF").value==="1"; }
+  else if (type==="num"){ const n = parseFloat($("#fNum").value.replace(",", ".")); if (isNaN(n)) return "La valeur chiffrée n'est pas valide."; q.a=n; q.unit=$("#fUnit").value.trim(); }
+  else if (type==="order"){ q.o = $("#fSteps").value.split("\n").map(s=>s.trim()).filter(Boolean); if (q.o.length<2) return "Indiquez au moins deux étapes."; }
+  else if (type==="open"){
+    q.keys = $("#fKeys").value.split("\n").map(l=>l.split("/").map(s=>s.trim()).filter(Boolean)).filter(g=>g.length);
+    q.sol = $("#fSol").value.trim();
+    if (!q.keys.length || !q.sol) return "Indiquez les mots-clés et la réponse modèle.";
+  }
+  return q;
+}
+
+function resetForm(){
+  editId = null; $("#fTitle").textContent = "Nouvelle question"; $("#fSave").textContent = "Enregistrer la question";
+  ["fQ","fArt","fX","fSitu","fVideo"].forEach(id => $("#"+id).value = "");
+  $("#fVidPrev").innerHTML = ""; $("#ferr").textContent = ""; renderAnswerFields();
+}
+
+function loadForm(q){
+  editId = q.id; $("#fTitle").textContent = "Modifier la question"; $("#fSave").textContent = "Enregistrer les modifications";
+  $("#fCh").value = q.ch; $("#fType").value = q.type; $("#fQ").value = q.q; $("#fArt").value = q.art; $("#fX").value = q.x;
+  $("#fSitu").value = q.situ||""; $("#fVideo").value = q.video||""; $("#fVidPrev").innerHTML = videoHTML(q.video);
+  renderAnswerFields(q); window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function renderMine(){
+  $("#mineCount").textContent = CUSTOM.length ? `(${CUSTOM.length})` : "";
+  $("#pubInfo").textContent = PUBLISHED.length ? `${PUBLISHED.length} question(s) supplémentaire(s) déjà publiée(s) sur le site.` : "";
+  $("#mineList").innerHTML = CUSTOM.length ? CUSTOM.map(q => `<div class="mine"><div>
+      <small>Ch. ${q.ch} · ${typeLabel[q.type]} · ${esc(q.art)}</small>${q.video?'<span class="badge-v">🎬 vidéo</span>':""}<br>${esc(q.q)}</div>
+      <button class="s" data-edit="${q.id}" style="background:var(--line);color:var(--ink)">Modifier</button>
+      <button data-del="${q.id}">Supprimer</button></div>`).join("")
+    : `<p class="help" style="margin:0 0 6px">Aucune question ajoutée pour l'instant.</p>`;
+  $("#mineList").querySelectorAll("[data-del]").forEach(b => b.onclick = () => {
+    if (!confirm("Supprimer cette question ?")) return;
+    CUSTOM = CUSTOM.filter(q => q.id !== b.dataset.del); saveCustom(); renderMine();
+    if (editId === b.dataset.del) resetForm();
+  });
+  $("#mineList").querySelectorAll("[data-edit]").forEach(b => b.onclick = () => loadForm(CUSTOM.find(q => q.id === b.dataset.edit)));
+}
+
+$("#fType").onchange = () => renderAnswerFields();
+$("#fVideo").addEventListener("change", () => $("#fVidPrev").innerHTML = videoHTML($("#fVideo").value));
+$("#fReset").onclick = resetForm;
+$("#fSave").onclick = () => {
+  const q = readForm(); if (typeof q === "string"){ $("#ferr").textContent = q; return; }
+  if (editId){ q.id = editId; CUSTOM = CUSTOM.map(c => c.id===editId ? q : c); }
+  else { q.id = "c" + Date.now().toString(36); CUSTOM.push(q); }
+  saveCustom(); renderMine(); resetForm();
+  $("#ferr").innerHTML = `<span style="color:var(--ok)">✓ Question enregistrée : elle est disponible dans l'onglet Formation.</span>`;
+};
+$("#fTest").onclick = () => {
+  const q = readForm(); if (typeof q === "string"){ $("#ferr").textContent = q; return; }
+  $("#ferr").textContent = "";
+  if (!user.fn) user = {fn:"Aperçu", ln:"responsable", cl:"", chaps:[]};
+  start(null, [q]);
+};
+$("#fExport").onclick = () => {
+  const clean = PUBLISHED.concat(CUSTOM).map(({_ord, ...q}) => q);
+  const blob = new Blob([JSON.stringify(clean, null, 2)], {type:"application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "questions-supplementaires.json"; a.click();
+};
+$("#fImport").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => {
+    const arr = JSON.parse(t); if (!Array.isArray(arr)) throw 0;
+    const ids = new Set(CUSTOM.map(q=>q.id)); let n = 0;
+    arr.forEach(q => { if (q && q.q && q.type && q.ch){ if (!q.id || ids.has(q.id)) q.id = "c"+Date.now().toString(36)+n; CUSTOM.push(q); n++; } });
+    saveCustom(); renderMine(); alert(n + " question(s) importée(s).");
+  }).catch(() => alert("Fichier non reconnu.")); e.target.value = "";
+};
+
+renderAnswerFields();
+renderMine();
+renderChapters();
+refreshLock();
+loadPublished();
+$("#start").onclick = () => start();
+</script>
+</body>
+</html>
